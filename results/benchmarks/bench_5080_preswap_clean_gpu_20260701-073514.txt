@@ -1,0 +1,53 @@
+Wed Jul  1 07:35:14 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.47                 KMD Version: 610.47        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5080      WDDM  |   00000000:01:00.0  On |                  N/A |
+| 30%   40C    P0             63W /  380W |    2381MiB /  16303MiB |     11%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            3100    C+G   ...__2p2nqsd0c76g0\app\Codex.exe      N/A      |
+|    0   N/A  N/A            5724    C+G   ...0.3405.102\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           13140    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A           16252    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           19500    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           19508    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           19748    C+G   ...al\Programs\PixPin\PixPin.exe      N/A      |
+|    0   N/A  N/A           20084    C+G   ...acted\runtime\WeChatAppEx.exe      N/A      |
+|    0   N/A  N/A           20476    C+G   ...s\antigravity\Antigravity.exe      N/A      |
+|    0   N/A  N/A           24880    C+G   ...\cef.win64\steamwebhelper.exe      N/A      |
+|    0   N/A  N/A           25136    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           26556    C+G   ...ogram Files\WeFlow\WeFlow.exe      N/A      |
+|    0   N/A  N/A           28676    C+G   ...8bbwe\PhoneExperienceHost.exe      N/A      |
+|    0   N/A  N/A           28852    C+G   ...acted\runtime\WeChatAppEx.exe      N/A      |
+|    0   N/A  N/A           29756    C+G   ...pp-4.0.692\RazerAppEngine.exe      N/A      |
+|    0   N/A  N/A           30568    C+G   ...loads\ClickShow\ClickShow.exe      N/A      |
+|    0   N/A  N/A           31064    C+G   ...re\3.3.0.507\MiSmartShare.exe      N/A      |
+|    0   N/A  N/A           32936    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           33752    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           34808    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
+|    0   N/A  N/A           36980    C+G   ...les\Tencent\Weixin\Weixin.exe      N/A      |
+|    0   N/A  N/A           39276    C+G   ...r\frontend\Docker Desktop.exe      N/A      |
+|    0   N/A  N/A           39996    C+G   ...cord\app-1.0.9243\Discord.exe      N/A      |
+|    0   N/A  N/A           42800    C+G   ...er\Evnia Precision Center.exe      N/A      |
+|    0   N/A  N/A           44348    C+G   ...8bbwe\Microsoft.CmdPal.UI.exe      N/A      |
+|    0   N/A  N/A           46312    C+G   ...yet59cg\Package\QuickLook.exe      N/A      |
+|    0   N/A  N/A           51384    C+G   ...ogram Files\Typora\Typora.exe      N/A      |
+|    0   N/A  N/A           58068    C+G   ...__2p2nqsd0c76g0\app\Codex.exe      N/A      |
+|    0   N/A  N/A           62656    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           63460    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           66648    C+G   ...encode-aidesktop\OpenCode.exe      N/A      |
+|    0   N/A  N/A           72904    C+G   ...ntrolPanel\SystemSettings.exe      N/A      |
+|    0   N/A  N/A           76080    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           79944    C+G   ...__2p2nqsd0c76g0\app\Codex.exe      N/A      |
++-----------------------------------------------------------------------------------------+

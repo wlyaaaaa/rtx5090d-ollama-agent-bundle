@@ -1,0 +1,74 @@
+{
+  "project": "RTX5080_to_RTX5090D_Ollama_Upgrade",
+  "version": "2026-07-01",
+  "execution_policy": "audit-first",
+  "tasks": [
+    {
+      "id": "A0",
+      "name": "Independent audit",
+      "input": "01_AUDIT_BEFORE_EXECUTION.md",
+      "output": "results/reports/audit_report.md",
+      "blocking": true
+    },
+    {
+      "id": "B0",
+      "name": "Backup current state",
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/01_backup_current_state.ps1 -Apply",
+      "depends_on": ["A0"]
+    },
+    {
+      "id": "H0",
+      "name": "Validate RTX 5090D at stock",
+      "manual": true,
+      "depends_on": ["B0"]
+    },
+    {
+      "id": "O0",
+      "name": "Configure Ollama environment",
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/02_configure_ollama_env.ps1 -Apply",
+      "depends_on": ["H0"]
+    },
+    {
+      "id": "M0",
+      "name": "Create no-SYSTEM 100K and 256K context models",
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/08_create_context_models.ps1 -Apply; ollama show qwen3.6-35b-100k; ollama show qwen3.6-27b-100k",
+      "depends_on": ["O0"]
+    },
+    {
+      "id": "V0",
+      "name": "Verify Ollama stack",
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/04_verify_stack.ps1",
+      "depends_on": ["M0"]
+    },
+    {
+      "id": "T0",
+      "name": "Tool-call smoke test",
+      "command": "python scripts/tool_call_smoke.py --model qwen3.6-35b-100k",
+      "depends_on": ["V0"]
+    },
+    {
+      "id": "C0",
+      "name": "Configure OpenClaw and OpenCode",
+      "manual": true,
+      "depends_on": ["T0"]
+    },
+    {
+      "id": "P0",
+      "name": "Run 100K swap benchmark",
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/07_run_swap_benchmark.ps1 -Label 5090d_default",
+      "depends_on": ["C0"]
+    },
+    {
+      "id": "P1",
+      "name": "Run 100K long-context benchmark after RTX 5090D install",
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/07_run_swap_benchmark.ps1 -Label 5090d_default -Long",
+      "depends_on": ["P0"]
+    },
+    {
+      "id": "OC0",
+      "name": "Validate +320/+2600 overclock under sustained agent load",
+      "manual": true,
+      "depends_on": ["P1"]
+    }
+  ]
+}

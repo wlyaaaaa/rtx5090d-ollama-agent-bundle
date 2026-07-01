@@ -1,0 +1,26 @@
+{
+  "runs": 1,
+  "median_prompt_tokens": 647,
+  "median_prompt_eval_rate": 13.972272317125578,
+  "median_eval_rate": 8.290842764166978,
+  "median_wall_seconds": 56.39067929999874,
+  "records": [
+    {
+      "run": 1,
+      "model": "qwen3.6-35b-100k",
+      "num_ctx": 100000,
+      "think": false,
+      "prompt_eval_count": 647,
+      "prompt_eval_duration_ns": 46305997000,
+      "prompt_eval_rate": 13.972272317125578,
+      "eval_count": 4,
+      "eval_duration_ns": 482460000,
+      "eval_rate": 8.290842764166978,
+      "load_duration_ns": 9568926100,
+      "total_duration_ns": 56362448500,
+      "wall_seconds": 56.39067929999874,
+      "done_reason": "stop",
+      "content_tail": "BENCH_OK"
+    }
+  ]
+}

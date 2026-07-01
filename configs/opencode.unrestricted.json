@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "ollama5090d": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama RTX 5090D",
+      "options": {
+        "baseURL": "http://127.0.0.1:11700/v1"
+      },
+      "models": {
+        "qwen3.6-35b-normal": {
+          "name": "Qwen3.6-35B-A3B Normal 100K",
+          "id": "qwen3.6-35b-100k",
+          "reasoning": false,
+          "tool_call": true,
+          "temperature": true,
+          "limit": { "context": 100000, "output": 8192 },
+          "modalities": { "input": ["text"], "output": ["text"] }
+        }
+      }
+    }
+  },
+  "model": "ollama5090d/qwen3.6-35b-normal"
+}

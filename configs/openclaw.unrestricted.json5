@@ -1,0 +1,40 @@
+{
+  models: {
+    providers: {
+      ollama5090d: {
+        baseUrl: "http://127.0.0.1:11700/v1",
+        apiKey: "ollama-local",
+        api: "openai-completions",
+        timeoutSeconds: 420,
+        contextWindow: 100000,
+        maxTokens: 8192,
+        models: [
+          {
+            id: "qwen3.6-35b-100k",
+            name: "Qwen3.6-35B-A3B Normal 100K",
+            reasoning: true,
+            input: ["text"],
+            contextWindow: 100000,
+            maxTokens: 8192,
+            params: {
+              num_ctx: 100000,
+              thinking: false,
+              keep_alive: "30m",
+              temperature: 0.7,
+              top_p: 0.8,
+              top_k: 20,
+              min_p: 0.0,
+              num_predict: 8192,
+              repeat_penalty: 1.0,
+            },
+          },
+        ],
+      },
+    },
+  },
+  agents: {
+    defaults: {
+      model: { primary: "ollama5090d/qwen3.6-35b-100k" },
+    },
+  },
+}

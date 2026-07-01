@@ -1,0 +1,29 @@
+# Local backup snapshots can contain API keys, bot tokens, and private session traces.
+results/backup-*/
+results/backups/
+
+# Runtime logs and transient service output.
+results/ollama-service/
+results/logs/
+*.log
+
+# Disposable smoke-test repositories and caches.
+results/opencode-smoke-repo/
+results/smoke/
+scripts/__pycache__/
+__pycache__/
+
+# Local editor and OS metadata.
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local configuration backups created while tuning clients.
+*.bak
+*.bak.*
+
+# Never commit Ollama model storage if this repo is placed near the model root.
+blobs/
+manifests/
+models/
+.ollama/
