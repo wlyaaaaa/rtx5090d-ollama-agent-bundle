@@ -4,7 +4,7 @@
 >
 > This file is the initial audit snapshot from 2026-07-01 02:21. Later work corrected the Ollama listen address, OpenClaw/OpenCode configs, warning cleanup, 27B/35B model entries, 100K active context, and no-SYSTEM 100K/256K Modelfiles.
 >
-> Use `results/reports/5080_pre_swap_status.md` for current swap decisions. Keep this file only as historical evidence of the first gate check.
+> Use `results/reports/5080_pre_swap_status.md` and `results/final_report.md` for current swap decisions. Keep this file only as historical evidence of the first gate check.
 
 时间：2026-07-01 02:21 America/Los_Angeles
 
@@ -110,16 +110,16 @@
 - SUPERSEDED：初始 OpenClaw `contextWindow` 与 `params.num_ctx` 为 65536；当前工作入口已改为 100K。
   当前证据：模板和实机配置均以 `qwen3.6-35b-100k` / `qwen3.6-27b-100k` 为主动入口。
 
-- WARN：OpenCode 实仓编辑与测试未验证。
-  证据：`opencode` 命令当前不可用；需安装或在 WSL 环境复测。
+- SUPERSEDED：OpenCode CLI 不是换卡前阻断项。
+  当前证据：OpenCode 桌面版由用户实测可用；4 个桌面入口已配置为 100K。CLI/WSL 可在换卡后按需补测。
 
-- WARN：OpenClaw 工具调用未验证。
-  证据：OpenClaw CLI 存在，但目标模型尚未创建，Ollama 目标端口未就绪。
+- SUPERSEDED：OpenClaw 目标模型和 provider 已在后续实测中修正。
+  当前证据：OpenClaw 使用 `api=openai-completions` + `/v1`，默认入口为 `qwen3.6-35b-100k`；旧 telegram / parallel / deepseek warning 已清理。换卡前服务已按计划停止。
 
 ## F. Bundle 完整性与脚本安全
 
-- PASS：SHA256 完整性校验全部 OK。
-  证据：`SHA256SUMS.txt` 中 23 项全部与当前文件 hash 匹配，包括 md、docx、configs、scripts、pycache。
+- PASS：SHA256 完整性校验覆盖公开跟踪文件。
+  证据：`SHA256SUMS.txt` 按当前 Git 跟踪文件重新生成；本地 backups/logs/model blobs 不纳入 GitHub。
 
 - PASS：PowerShell 脚本默认 dry run，只有 `-Apply` 才写入。
   证据：`01_backup_current_state.ps1` 和 `02_configure_ollama_env.ps1` 均检查 `$Apply`；`03_create_models.ps1` 在 dry run 只准备临时 Modelfile。
@@ -130,12 +130,12 @@
 - PASS：脚本未自动应用 GPU 超频。
   证据：全文搜索未发现设置 GPU clock/offset 的命令；OC 阶段为 manual。
 
-## 换卡前必须处理
+## 换卡前最终处理状态
 
-1. 先备份：运行 `scripts/01_backup_current_state.ps1 -Apply`，保存当前 5080 / Ollama / 配置状态。
-2. 收口 Ollama：停止当前 Ollama，确保重启后只监听 `127.0.0.1:11700`，不是 `0.0.0.0`、`[::]` 或默认 `11434`。
-3. 收口防火墙：删除或禁用当前 `ollama.exe` Public/Private 入站 Allow，或限制为本机回环/可信配置。
-4. 采集 5080 基线：短上下文、25K、40K 三档，记录 tok/s、温度、功耗、`ollama ps`。当前 5080 OC `+300/+2000` 要标注进基线。
+1. 备份：已完成，最终本地备份为 `results/backups/backup-20260701-080422`。
+2. Ollama：已停止，换卡前 `127.0.0.1:11700` 无监听。
+3. 5080 基线：已记录 64K 历史基线与 100K 干净短基线；45K 长测留给 RTX 5090D。
+4. 防火墙：仍需管理员权限禁用旧 `ollama.exe` 入站 Allow 规则；当前 Codex 会话无法提权执行。命令见 `results/final_report.md`。
 
 ## 换 5090D 后门禁
 
@@ -143,5 +143,5 @@
 2. `nvidia-smi` 必须显示 RTX 5090D 约 32GB；若是 24GB V2 或识别异常，停止。
 3. 默认频率下完成驱动、CUDA、显存、LLM 持续负载验证。
 4. 重启 Ollama 后确认 `127.0.0.1:11700/api/tags` 正常，且公网/局域网不可访问。
-5. 创建 `qwen3.6-35b-normal` 和 `qwen3.6-35b-unrestricted` 后再跑 tool call、OpenClaw、OpenCode、64K 基准。
+5. 先验证当前 100K 入口，再跑 tool call、OpenClaw、OpenCode、长上下文基准。
 6. 只有默认频率全部通过后，才单独测试 5090D OC；不得沿用 5080 的 `+300/+2000` 或 bundle 原假设 `+320/+2600` 作为默认值。

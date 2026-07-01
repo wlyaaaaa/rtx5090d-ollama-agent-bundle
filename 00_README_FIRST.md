@@ -38,7 +38,10 @@
 - OpenCode 四个桌面入口已配置为 100K：35B normal/think、27B review/think。
 - OpenClaw provider 已清理旧 telegram/parallel/deepseek warning。
 - 5080 100K 短基线已记录；45K 长基线不在 5080 上继续跑。
-- 详细记录见 `results/reports/5080_pre_swap_status.md`。
+- 最终本地备份：`results/backups/backup-20260701-080422`，不提交 GitHub。
+- 当前 Codex 会话无管理员权限，无法禁用旧 `ollama.exe` 入站防火墙 Allow 规则；若按严格网络门禁执行，请用管理员 PowerShell 运行：
+  `netsh advfirewall firewall set rule name="ollama.exe" dir=in new enable=no`
+- 详细记录见 `results/reports/5080_pre_swap_status.md` 和 `results/final_report.md`。
 
 ## 重要假设
 

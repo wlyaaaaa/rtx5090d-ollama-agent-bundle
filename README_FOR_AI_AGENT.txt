@@ -12,4 +12,5 @@ Do not execute immediately.
 9. Keep 256K entries as RTX 5090D post-validation candidates, not the first production default.
 10. Do not add SYSTEM prompts to the 100K/256K local models.
 11. Do not commit results/backups, results/logs, runtime logs, local config backups, or Ollama model blobs.
-12. At the end, produce results/final_report.md with evidence, benchmarks, deviations, and rollback status.
+12. Current final status is recorded in results/final_report.md and results/reports/5080_pre_swap_status.md.
+13. The only unresolved system item may be old Windows ollama.exe inbound Allow firewall rules, which require Administrator PowerShell to disable.
