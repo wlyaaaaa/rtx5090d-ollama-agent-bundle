@@ -6,7 +6,7 @@ Date: 2026-07-01
 
 - Repo: `G:\ollama\RTX5080_to_RTX5090D_Ollama_Agent_Bundle-1(1)\rtx5090d_ollama_agent_bundle`
 - GitHub: `https://github.com/wlyaaaaa/rtx5090d-ollama-agent-bundle`
-- Latest pushed commit before card swap: `70b8ed3`
+- Latest pushed commit before card swap: check `git log -1 --oneline`
 - Ollama is stopped.
 - `127.0.0.1:11700` has no listener.
 - `ollama`, `OpenCode`, and `openclaw` processes were verified stopped.

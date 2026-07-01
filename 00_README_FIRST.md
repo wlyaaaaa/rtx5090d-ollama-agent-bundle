@@ -32,6 +32,18 @@
 4. 按 `03_ACCEPTANCE_TESTS.md` 验收。
 5. 任何硬停止条件触发时，执行回滚，不得继续堆叠改动。
 
+## 重启后接续
+
+换完 RTX 5090D 并重启后，优先读取：
+
+- `POST_REBOOT_HANDOFF.md`
+
+推荐直接对 Codex 说：
+
+```text
+我已经换上 RTX 5090D 并重启了。请读取 G:\ollama\RTX5080_to_RTX5090D_Ollama_Agent_Bundle-1(1)\rtx5090d_ollama_agent_bundle\POST_REBOOT_HANDOFF.md，按里面的步骤做 5090D 默认频率验证。先不要超频，不要加模型系统提示词。
+```
+
 ## 换卡前最新状态
 
 - Ollama 监听：`127.0.0.1:11700`。
