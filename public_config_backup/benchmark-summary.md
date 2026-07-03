@@ -1,20 +1,20 @@
-# Benchmark Summary
+# Benchmark 摘要
 
-Hardware profile:
+硬件与运行配置：
 
-- GPU: RTX 5090D 32GB class
-- User-managed stable OC profile: `+320 core / +2800 mem`
-- Ollama endpoint: `127.0.0.1:32100`
-- Main context: `262144`
-- Review context after retune: `131072`
+- GPU：RTX 5090D 32GB 级别
+- 稳定超频档位：`+320 core / +2800 mem`
+- Ollama：`127.0.0.1:32100`
+- 主力模型上下文：`262144`
+- 复核模型上下文：`131072`
 
-## Main Model: qwen-main-v1
+## 主力模型：qwen-main-v1
 
-Model: `qwen3.6:35b`
+底座：`qwen3.6:35b`
 
-Test method: 3 runs per context size, median reported, `num_predict=256`.
+测试方式：每档 3 次，取中位数，`num_predict=256`。
 
-| Prompt context | Actual prompt tokens | Prompt eval | Output generation | Wall |
+| Prompt 上下文 | 实际 prompt tokens | Prompt eval | 输出生成 | 总耗时 |
 | --- | ---: | ---: | ---: | ---: |
 | 0K | `102` | `1269.41 tok/s` | `228.43 tok/s` | `1.41s` |
 | 50K | `50105` | `7190.92 tok/s` | `179.11 tok/s` | `7.77s` |
@@ -22,13 +22,15 @@ Test method: 3 runs per context size, median reported, `num_predict=256`.
 | 150K | `150107` | `5101.61 tok/s` | `128.96 tok/s` | `32.18s` |
 | 200K | `200107` | `4421.24 tok/s` | `113.94 tok/s` | `48.21s` |
 
-## Review Model: qwen-review-v1
+结论：`qwen-main-v1` 适合作为 256K 日常主力入口。
 
-Model: `qwen3.6:27b`
+## 复核模型：qwen-review-v1
 
-Temporary 256K test method: 1 run per context size, `num_predict=256`. This test motivated the final 128K review setting.
+底座：`qwen3.6:27b`
 
-| Prompt context | Actual prompt tokens | Prompt eval | Output generation | Wall |
+临时 256K 测试方式：每档 1 次，`num_predict=256`。这组数据用于决定是否保留 256K。
+
+| Prompt 上下文 | 实际 prompt tokens | Prompt eval | 输出生成 | 总耗时 |
 | --- | ---: | ---: | ---: | ---: |
 | 0K | `120` | `647.42 tok/s` | `72.21 tok/s` | `4.81s` |
 | 50K | `50123` | `2679.26 tok/s` | `59.38 tok/s` | `23.27s` |
@@ -36,15 +38,15 @@ Temporary 256K test method: 1 run per context size, `num_predict=256`. This test
 | 150K | `150125` | `1524.39 tok/s` | `44.65 tok/s` | `105.51s` |
 | 200K | `200125` | `1254.68 tok/s` | `39.62 tok/s` | `167.73s` |
 
-Decision: use `qwen-main-v1` for long-context default work. Keep `qwen-review-v1` at 128K for second opinions and review tasks.
+结论：`qwen-review-v1` 不适合作为 256K 日常复核入口，最终配置为 128K。
 
-## Stability
+## 两小时稳定性
 
-Final two-hour stability validation used `qwen-main-v1` at 256K:
+最终两小时验证使用 `qwen-main-v1`，上下文 256K：
 
-- Duration target: `7200s`
-- Elapsed: `7224.4s`
-- Iterations: `219`
-- Result: `219` OK, `0` failed
-- Max observed GPU: `577.39W`, `78C`, `30685 MiB`, `16601 MHz` memory clock
-- Error scan: no HTTP, CUDA, OOM, driver reset, Xid, panic, or exception errors were observed.
+- 目标时长：`7200s`
+- 实际时长：`7224.4s`
+- 轮次：`219`
+- 结果：`219` 通过，`0` 失败
+- 最高记录：`577.39W`，`78C`，`30685 MiB`，显存频率 `16601 MHz`
+- 错误扫描：未发现 HTTP、CUDA、OOM、driver reset、Xid、panic 或 exception。

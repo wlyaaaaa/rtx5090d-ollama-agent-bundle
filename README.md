@@ -1,55 +1,75 @@
-# RTX 5080 to RTX 5090D Ollama Agent Bundle
+# RTX 5090D Ollama 本地代理配置备份
 
-Public, sanitized upgrade bundle for moving a local Ollama/OpenClaw/OpenCode agent stack from RTX 5080 to RTX 5090D 32GB.
+这是一个**公开安全版**配置仓库，用来备份 RTX 5090D 32GB 上的 Ollama / OpenClaw / OpenCode / Chatbox 本地代理配置。
 
-## Current Status
+本仓库最重要的内容不是换卡流程本身，而是换卡完成后的最终 Ollama 配置、模型别名策略、256K/128K 上下文决策和公开可复现模板。
 
-Project status as of 2026-07-03: CLOSED / PASS with one non-blocking WARN.
+## 当前状态
 
-- RTX 5090D 32GB is installed and validated.
-- Final Ollama endpoint: `127.0.0.1:32100`.
-- Current production default: `qwen-main-v1`, `num_ctx=262144`.
-- OpenClaw, OpenCode, and Chatbox use the v1 aliases: main/gemma/north at 256K, review at 128K.
-- Final two-hour 256K stability run passed: `219/219` OK, `0` failed.
-- Non-blocking WARN: old inbound `ollama.exe` firewall Allow rules are still enabled; Ollama currently listens on loopback only.
+项目状态：**已完成 / PASS**，保留 1 个非阻断 WARN。
 
-## What This Repo Contains
+- 显卡：RTX 5090D 32GB，已完成验证。
+- Ollama 端口：`127.0.0.1:32100`。
+- 主力模型：`qwen-main-v1`，`num_ctx=262144`。
+- 复核模型：`qwen-review-v1`，`num_ctx=131072`。
+- Chatbox / OpenClaw / OpenCode 均使用版本化 v1 别名。
+- `qwen-main-v1` 256K 两小时稳定性验证：`219/219` 通过，`0` 失败。
+- 非阻断 WARN：旧 `ollama.exe` 入站防火墙 Allow 规则可能仍存在；当前 Ollama 仅监听 loopback。
 
-- Ollama start/stop scripts for `127.0.0.1:32100`.
-- No-SYSTEM 100K and 256K model creation scripts.
-- OpenClaw/OpenCode configuration notes for Ollama's OpenAI-compatible `/v1` endpoint.
-- RTX 5080 pre-swap benchmark summaries.
-- RTX 5090D post-swap validation and final closeout records.
-- Public-safe docs and checksums.
+## 最终模型策略
 
-## Main Documents
+| 显示入口 | 底座模型 | 上下文 | 用途 |
+| --- | --- | ---: | --- |
+| `qwen-main-v1` | `qwen3.6:35b` | `262144` | 默认本地代理主力 |
+| `qwen-review-v1` | `qwen3.6:27b` | `131072` | 复核 / 第二意见 |
+| `gemma-chat-v1` | `gemma4-31b-chat:latest` | `262144` | Chatbox 通用备用 |
+| `north-code-v1` | `north-mini-code-opencode:latest` | `262144` | OpenCode 代码实验备用 |
 
-- [00_README_FIRST.md](00_README_FIRST.md): detailed operator entrypoint.
-- [results/final_report.md](results/final_report.md): final project status and closeout evidence.
-- [public_config_backup/README.md](public_config_backup/README.md): sanitized public backup of the final Ollama/OpenClaw/OpenCode/Chatbox templates.
-- [results/reports/5080_pre_swap_status.md](results/reports/5080_pre_swap_status.md): RTX 5080 baseline and swap notes.
-- [02_EXECUTION_PLAN.md](02_EXECUTION_PLAN.md): execution flow.
-- [03_ACCEPTANCE_TESTS.md](03_ACCEPTANCE_TESTS.md): validation checklist.
+`qwen-review-v1` 没有继续使用 256K，是因为 27B dense 模型在 150K/200K 上下文下明显变慢。它现在固定为 128K，更适合作为快速复核模型。
 
-## Important State
+## 关键配置
 
-- Active production context: 256K binary context (`262144`) via the v1 aliases.
-- Review fallback context: 128K binary context (`131072`) via `qwen-review-v1`.
-- Keep raw 100K/256K/base tags installed for rollback and comparison, but hide them from daily GUI lists.
-- Do not add SYSTEM prompts to the 100K/256K local model entries.
-- Final validated user-managed OC profile for the two-hour 256K LLM workload: `+320 core / +2800 mem`.
-- Old Windows `ollama.exe` inbound firewall Allow rules may still need Administrator PowerShell cleanup:
-
-```powershell
-netsh advfirewall firewall set rule name="ollama.exe" dir=in new enable=no
+```text
+OLLAMA_HOST=127.0.0.1:32100
+OLLAMA_MODELS=D:\ollama-models
+OLLAMA_FLASH_ATTENTION=1
+OLLAMA_KV_CACHE_TYPE=q8_0
 ```
 
-## Not Included
+真实机器上可把 `OLLAMA_MODELS` 换成自己的模型目录；公开仓库里只保留示例路径。
 
-The repository intentionally excludes:
+## 主要文档
 
-- Ollama model blobs.
-- Local backups.
-- Runtime logs.
-- Smoke-test workspaces.
-- Local config backup files.
+- [public_config_backup/README.md](public_config_backup/README.md)：公开安全的 Ollama / GUI 配置备份。
+- [public_config_backup/benchmark-summary.md](public_config_backup/benchmark-summary.md)：最终速度与稳定性摘要。
+- [GUI_MODEL_DISPLAY_POLICY.md](GUI_MODEL_DISPLAY_POLICY.md)：GUI 显示哪些模型、隐藏哪些模型。
+- [results/final_report.md](results/final_report.md)：项目最终报告和验证证据。
+- [03_ACCEPTANCE_TESTS.md](03_ACCEPTANCE_TESTS.md)：验收清单。
+
+## 仓库包含什么
+
+- Ollama `32100` 启停脚本。
+- 公开安全的 v1 Modelfile。
+- OpenClaw / OpenCode / Chatbox 示例配置。
+- 最终 benchmark 摘要。
+- 清理过的执行与验收文档。
+
+## 仓库不包含什么
+
+本仓库不应提交以下内容：
+
+- Ollama `blobs/` 模型权重。
+- Ollama `manifests/` 本机 manifest。
+- 真实 GUI 配置文件。
+- logs、backups、`.bak`、临时目录。
+- API Key、token、私钥、账号路径。
+
+## 定期备份
+
+公开备份任务只允许提交白名单文件，脚本在提交前会跑敏感信息扫描：
+
+```powershell
+.\scripts\10_public_config_backup_to_github.ps1 -Apply
+```
+
+默认目标分支是 `codex/public-config-backup`。这个分支可通过 GitHub PR 合并到 `main`。
