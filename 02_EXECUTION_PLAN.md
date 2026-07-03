@@ -1,5 +1,7 @@
 # 执行计划
 
+状态更新：本计划已执行完成并于 2026-07-03 结项。最终生产入口为 `qwen-main-v1` / `262144` context / `127.0.0.1:32100`，OpenClaw、OpenCode、Chatbox 已接入。最终两小时 256K 稳定性验证在用户手动 `+320 core / +2800 mem` 档位下通过，记录见 `results/stability/stability_256k_20260703-084539` 和 `results/final_report.md`。
+
 ## 阶段 0：备份与基线
 
 1. 运行 `scripts/01_backup_current_state.ps1 -Apply`。
@@ -39,7 +41,7 @@
 OLLAMA_FLASH_ATTENTION=1
 OLLAMA_KV_CACHE_TYPE=q8_0
 OLLAMA_MODELS=G:\ollama
-OLLAMA_HOST=127.0.0.1:11700
+OLLAMA_HOST=127.0.0.1:32100
 ```
 
 修改用户环境变量后，完全退出并重新启动 Ollama。
@@ -87,7 +89,7 @@ ollama show --modelfile qwen3.6:35b
 
 ```text
 api=openai-completions
-baseUrl=http://127.0.0.1:11700/v1
+baseUrl=http://127.0.0.1:32100/v1
 ```
 
 2. 早期 `api=ollama` / 不带 `/v1` 的模板在当前环境推理路径报错：
@@ -96,14 +98,15 @@ baseUrl=http://127.0.0.1:11700/v1
 No API provider registered for api: ollama
 ```
 
-3. 当前默认模型为 `ollama5090d/qwen3.6-35b-100k`，`thinking=false`。
+3. GUI 显示策略以 `GUI_MODEL_DISPLAY_POLICY.md` 为准：用户侧只显示版本化语义别名，不显示 raw `100k` / `256k` 验证 tag。
+   当前默认模型为 `ollama5090d/qwen-main-v1`，`thinking=false`，上下文为 `262144`。
 4. 运行：
 
 ```powershell
-curl.exe http://127.0.0.1:11700/api/tags
+curl.exe http://127.0.0.1:32100/api/tags
 openclaw models list --provider ollama5090d
 openclaw models status
-openclaw infer model run --model ollama5090d/qwen3.6-35b-100k --prompt "Reply with exactly: ok"
+openclaw infer model run --model ollama5090d/qwen-main-v1 --prompt "Reply with exactly: ok"
 ```
 
 5. 执行真实工具调用烟雾测试。
@@ -115,14 +118,14 @@ openclaw infer model run --model ollama5090d/qwen3.6-35b-100k --prompt "Reply wi
 1. OpenCode 的 Ollama URL 必须带 `/v1`：
 
 ```text
-http://127.0.0.1:11700/v1
+http://127.0.0.1:32100/v1
 ```
 
 2. 当前桌面入口保留四个选择：
-   - 35B Normal 100K：`qwen3.6-35b-100k`，`reasoning=false`
-   - 35B Think 100K：`qwen3.6-35b-100k`，`reasoning=true`
-   - 27B Review 100K：`qwen3.6-27b-100k`，`reasoning=false`
-   - 27B Think 100K：`qwen3.6-27b-100k`，`reasoning=true`
+   - Main v1：`qwen-main-v1`，`context=262144`，`reasoning=false`
+   - Main Think v1：`qwen-main-v1`，`context=262144`，`reasoning=true`
+   - Review v1：`qwen-review-v1`，`context=262144`，`reasoning=false`
+   - North Code v1：`north-code-v1`，`context=262144`，代码实验备用
 3. 在一个可丢弃测试仓库内完成：读取、修改、运行测试、撤销。
 
 ## 阶段 6：性能与上下文晋升
@@ -146,6 +149,8 @@ http://127.0.0.1:11700/v1
 - 45K 上下文的 eval rate 与 prompt eval 延迟达到验收目标。
 
 ## 阶段 7：超频验证
+
+本阶段由用户手动执行，Codex 不自动应用 GPU 超频。
 
 1. 所有默认频率测试通过后，加载 +320 核心 / +2600 显存配置。
 2. 重复完全相同的 100K 基准和真实 OpenClaw/OpenCode 任务。

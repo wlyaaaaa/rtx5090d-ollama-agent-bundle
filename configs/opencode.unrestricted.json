@@ -5,7 +5,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "Ollama RTX 5090D",
       "options": {
-        "baseURL": "http://127.0.0.1:11700/v1"
+        "baseURL": "http://127.0.0.1:32100/v1"
       },
       "models": {
         "qwen3.6-35b-normal": {

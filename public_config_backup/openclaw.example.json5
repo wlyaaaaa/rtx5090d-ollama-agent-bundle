@@ -6,18 +6,18 @@
         apiKey: "ollama-local",
         api: "openai-completions",
         timeoutSeconds: 420,
-        contextWindow: 100000,
+        contextWindow: 262144,
         maxTokens: 8192,
         models: [
           {
-            id: "qwen3.6-35b-100k",
-            name: "Qwen3.6-35B-A3B Normal 100K",
+            id: "qwen-main-v1",
+            name: "Qwen Main v1 (35B, 256K)",
             reasoning: true,
             input: ["text"],
-            contextWindow: 100000,
+            contextWindow: 262144,
             maxTokens: 8192,
             params: {
-              num_ctx: 100000,
+              num_ctx: 262144,
               thinking: false,
               keep_alive: "30m",
               temperature: 0.7,
@@ -29,14 +29,14 @@
             },
           },
           {
-            id: "qwen3.6-27b-100k",
-            name: "Qwen3.6-27B Dense Optional Review 100K",
+            id: "qwen-review-v1",
+            name: "Qwen Review v1 (27B, 128K)",
             reasoning: true,
             input: ["text"],
-            contextWindow: 100000,
+            contextWindow: 131072,
             maxTokens: 8192,
             params: {
-              num_ctx: 100000,
+              num_ctx: 131072,
               thinking: false,
               keep_alive: "30m",
               temperature: 0.7,
@@ -53,7 +53,7 @@
   },
   agents: {
     defaults: {
-      model: { primary: "ollama5090d/qwen3.6-35b-100k" },
+      model: { primary: "ollama5090d/qwen-main-v1" },
     },
   },
 }

@@ -1,6 +1,6 @@
 param(
     [switch]$Apply,
-    [string]$OllamaHost = '127.0.0.1:11700'
+    [string]$OllamaHost = '127.0.0.1:32100'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -10,7 +10,7 @@ function Get-OllamaEndpoint {
 
     $parts = $HostValue.Split(':')
     if ($parts.Count -lt 2) {
-        throw "OllamaHost must include host and port, for example 127.0.0.1:11700"
+        throw "OllamaHost must include host and port, for example 127.0.0.1:32100"
     }
 
     [pscustomobject]@{

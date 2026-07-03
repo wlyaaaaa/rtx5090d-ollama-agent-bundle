@@ -49,7 +49,7 @@ def make_prompt(target_tokens: int) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--host", default="http://127.0.0.1:11700")
+    parser.add_argument("--host", default="http://127.0.0.1:32100")
     parser.add_argument("--model", default="qwen3.6-35b-100k")
     parser.add_argument("--num-ctx", type=int, default=100000)
     parser.add_argument("--prompt-tokens", type=int, default=1000)

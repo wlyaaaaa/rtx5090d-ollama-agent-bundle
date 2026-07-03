@@ -8,7 +8,7 @@ Date: 2026-07-01
 - GitHub: `https://github.com/wlyaaaaa/rtx5090d-ollama-agent-bundle`
 - Latest pushed commit before card swap: check `git log -1 --oneline`
 - Ollama is stopped.
-- `127.0.0.1:11700` has no listener.
+- `127.0.0.1:32100` has no listener.
 - `ollama`, `OpenCode`, and `openclaw` processes were verified stopped.
 - Final lightweight local backup: `results/backups/backup-20260701-080422`
 - Active model plan: 100K first, 256K only after RTX 5090D default-frequency validation.
@@ -29,7 +29,7 @@ Start with default GPU clocks. Do not apply OC first.
 ```powershell
 cd "G:\ollama\RTX5080_to_RTX5090D_Ollama_Agent_Bundle-1(1)\rtx5090d_ollama_agent_bundle"
 nvidia-smi
-.\scripts\05_start_ollama_11700.ps1 -Apply
+.\scripts\05_start_ollama_32100.ps1 -Apply
 ollama ps
 openclaw models list --provider ollama5090d
 .\scripts\07_run_swap_benchmark.ps1 -Label 5090d_default

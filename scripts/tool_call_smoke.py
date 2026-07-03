@@ -10,7 +10,7 @@ import urllib.request
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--host", default="http://127.0.0.1:11700")
+    parser.add_argument("--host", default="http://127.0.0.1:32100")
     parser.add_argument("--model", default="qwen3.6-35b-normal")
     args = parser.parse_args()
 

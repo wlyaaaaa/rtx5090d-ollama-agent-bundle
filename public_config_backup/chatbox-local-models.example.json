@@ -1,0 +1,32 @@
+{
+  "provider": "ollama",
+  "apiHost": "http://127.0.0.1:32100",
+  "useProxy": false,
+  "defaultModel": "qwen-main-v1:latest",
+  "models": [
+    {
+      "modelId": "qwen-main-v1:latest",
+      "type": "chat",
+      "contextWindow": 262144,
+      "nickname": "Qwen Main v1 (35B, 256K)"
+    },
+    {
+      "modelId": "qwen-review-v1:latest",
+      "type": "chat",
+      "contextWindow": 131072,
+      "nickname": "Qwen Review v1 (27B, 128K)"
+    },
+    {
+      "modelId": "gemma-chat-v1:latest",
+      "type": "chat",
+      "contextWindow": 262144,
+      "nickname": "Gemma Chat v1 (31B, 256K)"
+    },
+    {
+      "modelId": "north-code-v1:latest",
+      "type": "chat",
+      "contextWindow": 262144,
+      "nickname": "North Code v1 (256K)"
+    }
+  ]
+}

@@ -28,7 +28,7 @@
 ### B. 软件与端口
 
 1. 记录 Windows、NVIDIA 驱动、Ollama、OpenClaw、OpenCode 的版本。
-2. 确认 `127.0.0.1:11700` 未被其他程序占用；若已占用，统一修改所有配置。
+2. 确认 `127.0.0.1:32100` 未被其他程序占用；若已占用，统一修改所有配置。
 3. 确认模型目录 `G:\ollama` 存在、空间充足、权限正常。
 4. 确认防火墙没有把 Ollama 暴露到不可信网络。默认仅监听回环地址。
 
@@ -49,7 +49,7 @@
 
 ### E. 集成正确性
 
-1. OpenClaw 当前实测可用路径为 `api=openai-completions` + `http://127.0.0.1:11700/v1`。若将来 OpenClaw 原生 `api=ollama` 路径恢复可用，必须重新实测后再切换。
+1. OpenClaw 当前实测可用路径为 `api=openai-completions` + `http://127.0.0.1:32100/v1`。若将来 OpenClaw 原生 `api=ollama` 路径恢复可用，必须重新实测后再切换。
 2. OpenCode 使用 `/v1` OpenAI 兼容 URL。
 3. OpenClaw 的 `contextWindow` 与 `params.num_ctx` 保持一致。
 4. OpenClaw 工具调用返回结构化 tool call，而不是把 JSON 当普通文本。

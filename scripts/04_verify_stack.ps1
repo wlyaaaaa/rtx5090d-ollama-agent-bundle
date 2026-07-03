@@ -1,5 +1,5 @@
 param(
-    [string]$HostUrl = 'http://127.0.0.1:11700',
+    [string]$HostUrl = 'http://127.0.0.1:32100',
     [string]$NormalModel = 'qwen3.6-35b-100k',
     [string]$ReviewModel = 'qwen3.6-27b-100k'
 )

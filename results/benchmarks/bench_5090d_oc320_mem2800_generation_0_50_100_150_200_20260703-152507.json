@@ -1,0 +1,403 @@
+{
+  "model": "qwen-main-v1",
+  "host": "http://127.0.0.1:32100",
+  "num_ctx": 262144,
+  "num_predict": 256,
+  "repeats": 3,
+  "profile": "+320 core / +2800 mem (user-managed)",
+  "max_gpu_observed": {
+    "power_w": 556.78,
+    "temp_c": 75,
+    "memory_used_mib": 30546,
+    "mem_mhz": 16601
+  },
+  "cases": [
+    {
+      "case": "0K",
+      "target_context_tokens": 0,
+      "actual_prompt_eval_count_median": 102,
+      "prompt_eval_rate_median": 1269.4145758661887,
+      "eval_rate_median": 228.42886448546847,
+      "wall_seconds_median": 1.410181899998861,
+      "eval_count_median": 256,
+      "done_reasons": [
+        "length",
+        "length",
+        "length"
+      ]
+    },
+    {
+      "case": "50K",
+      "target_context_tokens": 50000,
+      "actual_prompt_eval_count_median": 50105,
+      "prompt_eval_rate_median": 7190.91893356541,
+      "eval_rate_median": 179.11330582763887,
+      "wall_seconds_median": 7.772954399999435,
+      "eval_count_median": 86,
+      "done_reasons": [
+        "stop",
+        "stop",
+        "stop"
+      ]
+    },
+    {
+      "case": "100K",
+      "target_context_tokens": 100000,
+      "actual_prompt_eval_count_median": 100107,
+      "prompt_eval_rate_median": 6178.683169653911,
+      "eval_rate_median": 154.9504551972259,
+      "wall_seconds_median": 18.25068519999695,
+      "eval_count_median": 256,
+      "done_reasons": [
+        "length",
+        "length",
+        "length"
+      ]
+    },
+    {
+      "case": "150K",
+      "target_context_tokens": 150000,
+      "actual_prompt_eval_count_median": 150107,
+      "prompt_eval_rate_median": 5101.611476669899,
+      "eval_rate_median": 128.96023793163897,
+      "wall_seconds_median": 32.17612740000186,
+      "eval_count_median": 256,
+      "done_reasons": [
+        "length",
+        "length",
+        "length"
+      ]
+    },
+    {
+      "case": "200K",
+      "target_context_tokens": 200000,
+      "actual_prompt_eval_count_median": 200107,
+      "prompt_eval_rate_median": 4421.241703723006,
+      "eval_rate_median": 113.93845632084712,
+      "wall_seconds_median": 48.21055440000055,
+      "eval_count_median": 256,
+      "done_reasons": [
+        "length",
+        "length",
+        "length"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "case": "0K",
+      "target_context_tokens": 0,
+      "run": 1,
+      "prompt_eval_count": 102,
+      "prompt_eval_rate": 1207.6150786133737,
+      "eval_count": 256,
+      "eval_rate": 228.42886448546847,
+      "wall_seconds": 1.4406218000003719,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 359.62,
+        "power_limit_w": 575.0,
+        "temp_c": 60,
+        "util_pct": 77,
+        "gfx_mhz": 3247,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30380,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "0K",
+      "target_context_tokens": 0,
+      "run": 2,
+      "prompt_eval_count": 102,
+      "prompt_eval_rate": 1278.0513475923767,
+      "eval_count": 256,
+      "eval_rate": 227.45102917148296,
+      "wall_seconds": 1.410181899998861,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 359.44,
+        "power_limit_w": 575.0,
+        "temp_c": 60,
+        "util_pct": 89,
+        "gfx_mhz": 3247,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30379,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "0K",
+      "target_context_tokens": 0,
+      "run": 3,
+      "prompt_eval_count": 102,
+      "prompt_eval_rate": 1269.4145758661887,
+      "eval_count": 256,
+      "eval_rate": 233.57834728720647,
+      "wall_seconds": 1.3641150999974343,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 361.89,
+        "power_limit_w": 575.0,
+        "temp_c": 61,
+        "util_pct": 84,
+        "gfx_mhz": 3240,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30394,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "50K",
+      "target_context_tokens": 50000,
+      "run": 1,
+      "prompt_eval_count": 50105,
+      "prompt_eval_rate": 7233.43412933591,
+      "eval_count": 83,
+      "eval_rate": 178.54223491855893,
+      "wall_seconds": 7.632222799998999,
+      "done_reason": "stop",
+      "gpu_after": {
+        "power_w": 512.52,
+        "power_limit_w": 575.0,
+        "temp_c": 66,
+        "util_pct": 80,
+        "gfx_mhz": 3127,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30372,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "50K",
+      "target_context_tokens": 50000,
+      "run": 2,
+      "prompt_eval_count": 50105,
+      "prompt_eval_rate": 7168.775187467656,
+      "eval_count": 86,
+      "eval_rate": 179.11330582763887,
+      "wall_seconds": 7.772954399999435,
+      "done_reason": "stop",
+      "gpu_after": {
+        "power_w": 504.64,
+        "power_limit_w": 575.0,
+        "temp_c": 66,
+        "util_pct": 85,
+        "gfx_mhz": 3172,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30394,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "50K",
+      "target_context_tokens": 50000,
+      "run": 3,
+      "prompt_eval_count": 50105,
+      "prompt_eval_rate": 7190.91893356541,
+      "eval_count": 96,
+      "eval_rate": 179.46139183424756,
+      "wall_seconds": 8.043305199997121,
+      "done_reason": "stop",
+      "gpu_after": {
+        "power_w": 505.94,
+        "power_limit_w": 575.0,
+        "temp_c": 67,
+        "util_pct": 86,
+        "gfx_mhz": 3157,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30391,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "100K",
+      "target_context_tokens": 100000,
+      "run": 1,
+      "prompt_eval_count": 100107,
+      "prompt_eval_rate": 6190.9707326090265,
+      "eval_count": 256,
+      "eval_rate": 155.15245546942708,
+      "wall_seconds": 18.129622299999028,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 508.56,
+        "power_limit_w": 575.0,
+        "temp_c": 70,
+        "util_pct": 89,
+        "gfx_mhz": 3135,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30377,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "100K",
+      "target_context_tokens": 100000,
+      "run": 2,
+      "prompt_eval_count": 100107,
+      "prompt_eval_rate": 6178.683169653911,
+      "eval_count": 256,
+      "eval_rate": 154.9504551972259,
+      "wall_seconds": 18.25068519999695,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 509.51,
+        "power_limit_w": 575.0,
+        "temp_c": 71,
+        "util_pct": 92,
+        "gfx_mhz": 3142,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30344,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "100K",
+      "target_context_tokens": 100000,
+      "run": 3,
+      "prompt_eval_count": 100107,
+      "prompt_eval_rate": 6134.291139081496,
+      "eval_count": 256,
+      "eval_rate": 153.19470808030275,
+      "wall_seconds": 18.56362319999971,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 505.76,
+        "power_limit_w": 575.0,
+        "temp_c": 72,
+        "util_pct": 88,
+        "gfx_mhz": 3135,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30390,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "150K",
+      "target_context_tokens": 150000,
+      "run": 1,
+      "prompt_eval_count": 150107,
+      "prompt_eval_rate": 5101.611476669899,
+      "eval_count": 256,
+      "eval_rate": 128.9891533222517,
+      "wall_seconds": 32.17612740000186,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 527.66,
+        "power_limit_w": 575.0,
+        "temp_c": 73,
+        "util_pct": 94,
+        "gfx_mhz": 3097,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30434,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "150K",
+      "target_context_tokens": 150000,
+      "run": 2,
+      "prompt_eval_count": 150107,
+      "prompt_eval_rate": 4970.30587676991,
+      "eval_count": 256,
+      "eval_rate": 126.67140694822356,
+      "wall_seconds": 32.75050420000116,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 513.46,
+        "power_limit_w": 575.0,
+        "temp_c": 71,
+        "util_pct": 76,
+        "gfx_mhz": 3097,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30546,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "150K",
+      "target_context_tokens": 150000,
+      "run": 3,
+      "prompt_eval_count": 150107,
+      "prompt_eval_rate": 5174.978693423977,
+      "eval_count": 256,
+      "eval_rate": 128.96023793163897,
+      "wall_seconds": 31.57551219999732,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 524.39,
+        "power_limit_w": 575.0,
+        "temp_c": 74,
+        "util_pct": 91,
+        "gfx_mhz": 3090,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30412,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "200K",
+      "target_context_tokens": 200000,
+      "run": 1,
+      "prompt_eval_count": 200107,
+      "prompt_eval_rate": 4405.271020690687,
+      "eval_count": 256,
+      "eval_rate": 113.93845632084712,
+      "wall_seconds": 48.39134479999848,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 545.35,
+        "power_limit_w": 575.0,
+        "temp_c": 75,
+        "util_pct": 91,
+        "gfx_mhz": 3060,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30494,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "200K",
+      "target_context_tokens": 200000,
+      "run": 2,
+      "prompt_eval_count": 200107,
+      "prompt_eval_rate": 4472.433063529817,
+      "eval_count": 256,
+      "eval_rate": 116.9645684167338,
+      "wall_seconds": 47.62254640000174,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 556.78,
+        "power_limit_w": 575.0,
+        "temp_c": 75,
+        "util_pct": 93,
+        "gfx_mhz": 3052,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30372,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "200K",
+      "target_context_tokens": 200000,
+      "run": 3,
+      "prompt_eval_count": 200107,
+      "prompt_eval_rate": 4421.241703723006,
+      "eval_count": 256,
+      "eval_rate": 112.59329630069446,
+      "wall_seconds": 48.21055440000055,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 539.47,
+        "power_limit_w": 575.0,
+        "temp_c": 75,
+        "util_pct": 89,
+        "gfx_mhz": 3060,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30361,
+        "memory_total_mib": 32607
+      }
+    }
+  ]
+}

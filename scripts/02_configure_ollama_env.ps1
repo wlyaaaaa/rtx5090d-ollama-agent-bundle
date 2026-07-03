@@ -1,7 +1,7 @@
 param(
     [switch]$Apply,
     [string]$ModelDir = 'G:\ollama',
-    [string]$OllamaHost = '127.0.0.1:11700'
+    [string]$OllamaHost = '127.0.0.1:32100'
 )
 
 $ErrorActionPreference = 'Stop'

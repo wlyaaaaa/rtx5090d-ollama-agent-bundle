@@ -1,0 +1,8 @@
+FROM gemma4-31b-chat:latest
+
+PARAMETER num_ctx 262144
+PARAMETER num_predict 8192
+PARAMETER temperature 1.0
+PARAMETER top_k 64
+PARAMETER top_p 0.95
+PARAMETER repeat_penalty 1.0

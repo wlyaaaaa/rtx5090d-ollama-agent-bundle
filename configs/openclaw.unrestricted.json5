@@ -2,7 +2,7 @@
   models: {
     providers: {
       ollama5090d: {
-        baseUrl: "http://127.0.0.1:11700/v1",
+        baseUrl: "http://127.0.0.1:32100/v1",
         apiKey: "ollama-local",
         api: "openai-completions",
         timeoutSeconds: 420,

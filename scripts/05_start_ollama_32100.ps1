@@ -1,6 +1,6 @@
 param(
     [switch]$Apply,
-    [string]$OllamaHost = '127.0.0.1:11700',
+    [string]$OllamaHost = '127.0.0.1:32100',
     [string]$ModelDir = 'G:\ollama',
     [string]$OllamaExe = 'ollama',
     [string]$LogDir = "$PSScriptRoot\..\results\logs\ollama-service"
@@ -13,7 +13,7 @@ function Get-OllamaEndpoint {
 
     $parts = $HostValue.Split(':')
     if ($parts.Count -lt 2) {
-        throw "OllamaHost must include host and port, for example 127.0.0.1:11700"
+        throw "OllamaHost must include host and port, for example 127.0.0.1:32100"
     }
 
     [pscustomobject]@{
@@ -76,8 +76,8 @@ $env:OLLAMA_MODELS = $ModelDir
 $env:OLLAMA_FLASH_ATTENTION = '1'
 $env:OLLAMA_KV_CACHE_TYPE = 'q8_0'
 
-$stdout = Join-Path $LogDir 'ollama-11700.stdout.log'
-$stderr = Join-Path $LogDir 'ollama-11700.stderr.log'
+$stdout = Join-Path $LogDir 'ollama-32100.stdout.log'
+$stderr = Join-Path $LogDir 'ollama-32100.stderr.log'
 
 $process = Start-Process -FilePath $resolved.Source `
     -ArgumentList 'serve' `
