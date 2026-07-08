@@ -56,7 +56,7 @@
 推荐直接对 Codex 说：
 
 ```text
-我已经换上 RTX 5090D 并重启了。请读取 G:\ollama\RTX5080_to_RTX5090D_Ollama_Agent_Bundle-1(1)\rtx5090d_ollama_agent_bundle\POST_REBOOT_HANDOFF.md，按里面的步骤做 5090D 默认频率验证。先不要超频，不要加模型系统提示词。
+我已经换上 RTX 5090D 并重启了。请读取 G:\20_Projects\github\rtx5090d-ollama-agent-bundle\POST_REBOOT_HANDOFF.md，按里面的步骤做 5090D 默认频率验证。先不要超频，不要加模型系统提示词。
 ```
 
 ## 换卡前最新状态
