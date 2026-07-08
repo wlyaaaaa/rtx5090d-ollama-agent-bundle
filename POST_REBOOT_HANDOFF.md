@@ -4,7 +4,7 @@ Date: 2026-07-01
 
 ## Current State Before Shutdown
 
-- Repo: `G:\20_Projects\github\rtx5090d-ollama-agent-bundle`
+- Repo: `E:\Projects\Tools\rtx5090d-ollama-agent-bundle`
 - GitHub: `https://github.com/wlyaaaaa/rtx5090d-ollama-agent-bundle`
 - Latest pushed commit before card swap: check `git log -1 --oneline`
 - Ollama is stopped.
@@ -27,7 +27,7 @@ netsh advfirewall firewall set rule name="ollama.exe" dir=in new enable=no
 Start with default GPU clocks. Do not apply OC first.
 
 ```powershell
-cd "G:\20_Projects\github\rtx5090d-ollama-agent-bundle"
+cd "E:\Projects\Tools\rtx5090d-ollama-agent-bundle"
 nvidia-smi
 .\scripts\05_start_ollama_32100.ps1 -Apply
 ollama ps
@@ -41,5 +41,5 @@ openclaw models list --provider ollama5090d
 Paste this:
 
 ```text
-我已经换上 RTX 5090D 并重启了。请读取 G:\20_Projects\github\rtx5090d-ollama-agent-bundle\POST_REBOOT_HANDOFF.md，按里面的步骤做 5090D 默认频率验证。先不要超频，不要加模型系统提示词。
+我已经换上 RTX 5090D 并重启了。请读取 E:\Projects\Tools\rtx5090d-ollama-agent-bundle\POST_REBOOT_HANDOFF.md，按里面的步骤做 5090D 默认频率验证。先不要超频，不要加模型系统提示词。
 ```
