@@ -53,6 +53,14 @@ OLLAMA_KV_CACHE_TYPE=q8_0
 - [results/final_report.md](results/final_report.md)：项目最终报告和验证证据。
 - [03_ACCEPTANCE_TESTS.md](03_ACCEPTANCE_TESTS.md)：验收清单。
 
+公开备份提交前运行只读完整性检查：
+
+```powershell
+pwsh -NoProfile -File .\scripts\11_verify_public_checksums.ps1
+```
+
+校验路径由 `configs/public-backup-paths.json` 唯一管理；仓库通过 `.gitattributes` 固定文本为 LF，使 Windows 与其他平台复验同一组 SHA256。
+
 ## 仓库包含什么
 
 - Ollama `32100` 启停脚本。

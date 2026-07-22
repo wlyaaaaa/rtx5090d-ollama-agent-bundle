@@ -1,5 +1,11 @@
 # 验收测试与决策门
 
+## 0. 公开备份完整性
+
+- [ ] `pwsh -NoProfile -File .\scripts\11_verify_public_checksums.ps1` 返回 `status=ok`。
+- [ ] `expected_entries` 与 `manifest_entries` 相等，`failures` 为空。
+- [ ] PowerShell 脚本语法检查和 `git diff --check` 通过。
+
 ## 1. 基础可用性
 
 - [ ] `curl http://127.0.0.1:32100/api/tags` 返回模型列表。

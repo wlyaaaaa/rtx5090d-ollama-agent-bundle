@@ -9,27 +9,11 @@ $ErrorActionPreference = "Stop"
 $RepoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 Set-Location $RepoRoot
 
-$publicBackupPaths = @(
-    "README.md",
-    "00_README_FIRST.md",
-    "03_ACCEPTANCE_TESTS.md",
-    "GUI_MODEL_DISPLAY_POLICY.md",
-    "public_config_backup",
-    "configs/Modelfile.gemma-chat-v1-128k",
-    "configs/Modelfile.gemma-chat-v1-256k",
-    "configs/Modelfile.north-code-v1-128k",
-    "configs/Modelfile.north-code-v1-256k",
-    "configs/Modelfile.qwen-main-v1-128k",
-    "configs/Modelfile.qwen-main-v1-256k",
-    "configs/Modelfile.qwen-review-v1-128k",
-    "configs/Modelfile.qwen-review-v1-256k",
-    "scripts/05_start_ollama_32100.ps1",
-    "scripts/06_stop_ollama_32100.ps1",
-    "scripts/09_disable_ollama_firewall_admin.ps1",
-    "scripts/10_public_config_backup_to_github.ps1",
-    "results/final_report.md",
-    "results/reports/audit_report.md"
-)
+$pathContract = Get-Content -LiteralPath "configs/public-backup-paths.json" -Raw | ConvertFrom-Json
+if ($pathContract.schema -ne "rtx5090d.public-backup-paths.v1") {
+    throw "Unsupported public backup path contract: $($pathContract.schema)"
+}
+$publicBackupPaths = @($pathContract.paths | ForEach-Object { [string]$_ })
 
 $allowList = @($publicBackupPaths + "SHA256SUMS.txt")
 
