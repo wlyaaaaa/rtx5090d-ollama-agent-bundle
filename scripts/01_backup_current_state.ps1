@@ -26,7 +26,7 @@ foreach ($item in $commands) {
     }
 }
 
-$ollamaHost = if ($env:OLLAMA_HOST) { $env:OLLAMA_HOST } else { '127.0.0.1:11700' }
+$ollamaHost = if ($env:OLLAMA_HOST) { $env:OLLAMA_HOST } else { '127.0.0.1:32100' }
 $ollamaUriBase = if ($ollamaHost -match '^https?://') { $ollamaHost.TrimEnd('/') } else { "http://$($ollamaHost.TrimEnd('/'))" }
 $ollamaPortOpen = $false
 try {

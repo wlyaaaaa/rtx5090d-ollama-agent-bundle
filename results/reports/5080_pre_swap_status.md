@@ -5,7 +5,7 @@
 ## 最终结论
 
 - 模型、配置、脚本、文档、GitHub 提交：已完成。
-- Ollama / OpenCode / OpenClaw：换卡前已停止，`127.0.0.1:11700` 无监听。
+- Ollama / OpenCode / OpenClaw：换卡前已停止，`127.0.0.1:32100` 无监听。
 - RTX 5080：已记录 100K 短基线；不再在 5080 上跑 45K 长压测。
 - 最终本地备份：已写入 `results/backups/backup-20260701-080422`，该目录被 `.gitignore` 排除，不提交 GitHub。
 - 严格安全门禁残留：Windows 防火墙仍存在两条 `ollama.exe` 入站 Allow 规则，当前 Codex 会话无管理员权限，无法代为禁用。若按网络收口门禁执行，需在管理员 PowerShell 运行：
@@ -14,7 +14,7 @@
 netsh advfirewall firewall set rule name="ollama.exe" dir=in new enable=no
 ```
 
-硬件换卡本身不依赖这两条规则；Ollama 当前已停，后续启动脚本会绑定 `127.0.0.1:11700`。
+硬件换卡本身不依赖这两条规则；Ollama 当前已停，后续启动脚本会绑定 `127.0.0.1:32100`。
 
 ## 模型入口
 
@@ -29,7 +29,7 @@ netsh advfirewall firewall set rule name="ollama.exe" dir=in new enable=no
 
 ## OpenClaw / OpenCode 配置
 
-- OpenClaw 使用 Ollama OpenAI 兼容接口：`http://127.0.0.1:11700/v1`，`api=openai-completions`。
+- OpenClaw 使用 Ollama OpenAI 兼容接口：`http://127.0.0.1:32100/v1`，`api=openai-completions`。
 - OpenClaw 默认模型：`ollama5090d/qwen3.6-35b-100k`。
 - OpenClaw 旧 warning：telegram / parallel / deepseek 配置 warning 已清理。
 - OpenCode 桌面 4 个入口已配置为 100K：
@@ -71,7 +71,7 @@ netsh advfirewall firewall set rule name="ollama.exe" dir=in new enable=no
 
 ```powershell
 nvidia-smi
-.\scripts\05_start_ollama_11700.ps1 -Apply
+.\scripts\05_start_ollama_32100.ps1 -Apply
 ollama ps
 openclaw models list --provider ollama5090d
 .\scripts\07_run_swap_benchmark.ps1 -Label 5090d_default

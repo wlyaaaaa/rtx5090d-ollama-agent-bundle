@@ -1,0 +1,608 @@
+{
+  "generated_date": "2026-07-05",
+  "scope": "Public-safe RTX 5090D benchmark/stability summary derived from local raw evidence.",
+  "redaction_policy": [
+    "No Windows absolute paths.",
+    "No process lists.",
+    "No raw launcher paths or status paths.",
+    "No generated text tails, random run IDs, private URLs, credentials, or private environment details."
+  ],
+  "source_counts": {
+    "benchmark_json_files": 25,
+    "smi_csv_files": 9,
+    "stability_status_files": 3
+  },
+  "benchmark_runs": [
+    {
+      "source": "bench_5090d_default_100k_1k_128_20260703-053317.json",
+      "label": "bench_5090d_default_100k_1k_128_20260703-053317",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 647,
+      "median_prompt_eval_rate": 3994.81,
+      "median_eval_rate": 121.72,
+      "median_wall_seconds": 0.38
+    },
+    {
+      "source": "bench_5090d_default_100k_1k_128_20260703-053324.json",
+      "label": "bench_5090d_default_100k_1k_128_20260703-053324",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 647,
+      "median_prompt_eval_rate": 6056.18,
+      "median_eval_rate": 133.02,
+      "median_wall_seconds": 0.31
+    },
+    {
+      "source": "bench_5090d_default_100k_45k_64_20260703-053324.json",
+      "label": "bench_5090d_default_100k_45k_64_20260703-053324",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 28247,
+      "median_prompt_eval_rate": 6340.26,
+      "median_eval_rate": 123.21,
+      "median_wall_seconds": 4.75
+    },
+    {
+      "source": "bench_5090d_default_128k_1k_128_20260703-063301.json",
+      "label": "bench_5090d_default_128k_1k_128_20260703-063301",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 647,
+      "median_prompt_eval_rate": 2839.03,
+      "median_eval_rate": 105.68,
+      "median_wall_seconds": 0.57
+    },
+    {
+      "source": "bench_5090d_default_128k_45k_64_20260703-063301.json",
+      "label": "bench_5090d_default_128k_45k_64_20260703-063301",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 28247,
+      "median_prompt_eval_rate": 4985.37,
+      "median_eval_rate": 136.4,
+      "median_wall_seconds": 5.97
+    },
+    {
+      "source": "bench_5090d_default_256k_1k_128_20260703-060436.json",
+      "label": "bench_5090d_default_256k_1k_128_20260703-060436",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 647,
+      "median_prompt_eval_rate": 2521.89,
+      "median_eval_rate": 85.71,
+      "median_wall_seconds": 0.51
+    },
+    {
+      "source": "bench_5090d_default_256k_45k_64_20260703-060436.json",
+      "label": "bench_5090d_default_256k_45k_64_20260703-060436",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 28247,
+      "median_prompt_eval_rate": 4451.91,
+      "median_eval_rate": 91.26,
+      "median_wall_seconds": 6.64
+    },
+    {
+      "source": "bench_5090d_manual_current_oc360_mem3000_repeat5_20260703-070420_45k_64.json",
+      "label": "bench_5090d_manual_current_oc360_mem3000_repeat5_20260703-070420_45k_64",
+      "runs": 5,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 28247,
+      "median_prompt_eval_rate": 252295.46,
+      "median_eval_rate": 136.36,
+      "median_wall_seconds": 0.38
+    },
+    {
+      "source": "bench_5090d_manual_current_oc360_mem3000_unique5_20260703-070519_45k_64.json",
+      "label": "manual_current_oc360_mem3000_unique5",
+      "runs": 5,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 41954,
+      "median_prompt_eval_rate": 6398.84,
+      "median_eval_rate": 172.2,
+      "median_wall_seconds": 6.96
+    },
+    {
+      "source": "bench_5090d_manual_oc320_mem2500_unique5_20260703-070851_45k_64.json",
+      "label": "manual_oc320_mem2500_unique5",
+      "runs": 5,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 41954,
+      "median_prompt_eval_rate": 6333.67,
+      "median_eval_rate": 169.78,
+      "median_wall_seconds": 7.27
+    },
+    {
+      "source": "bench_5090d_manual_oc365_mem2500_retest_unique7_20260703-071447_45k_64.json",
+      "label": "manual_oc365_mem2500_retest_unique7",
+      "runs": 7,
+      "ok_runs": 7,
+      "fail_runs": 0,
+      "median_prompt_tokens": 42178,
+      "median_prompt_eval_rate": 5968.31,
+      "median_eval_rate": 163.73,
+      "median_wall_seconds": 7.5
+    },
+    {
+      "source": "bench_5090d_oc250_mem2000_128k_1k_128_20260703-065353.json",
+      "label": "bench_5090d_oc250_mem2000_128k_1k_128_20260703-065353",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 647,
+      "median_prompt_eval_rate": 5679.17,
+      "median_eval_rate": 125.73,
+      "median_wall_seconds": 0.43
+    },
+    {
+      "source": "bench_5090d_oc250_mem2000_128k_45k_64_20260703-065353.json",
+      "label": "bench_5090d_oc250_mem2000_128k_45k_64_20260703-065353",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 28247,
+      "median_prompt_eval_rate": 219373.73,
+      "median_eval_rate": 117.48,
+      "median_wall_seconds": 0.48
+    },
+    {
+      "source": "bench_5090d_oc250_mem2000_128k_cold_1k_128_20260703-065417.json",
+      "label": "bench_5090d_oc250_mem2000_128k_cold_1k_128_20260703-065417",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 647,
+      "median_prompt_eval_rate": 1873.93,
+      "median_eval_rate": 98.74,
+      "median_wall_seconds": 6.96
+    },
+    {
+      "source": "bench_5090d_oc250_mem2000_128k_cold_45k_64_20260703-065417.json",
+      "label": "bench_5090d_oc250_mem2000_128k_cold_45k_64_20260703-065417",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 28247,
+      "median_prompt_eval_rate": 5621.31,
+      "median_eval_rate": 97.63,
+      "median_wall_seconds": 10.76
+    },
+    {
+      "source": "bench_5090d_oc300_mem2500_128k_cold_1k_128_20260703-065719.json",
+      "label": "bench_5090d_oc300_mem2500_128k_cold_1k_128_20260703-065719",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 647,
+      "median_prompt_eval_rate": 2327.71,
+      "median_eval_rate": 110.5,
+      "median_wall_seconds": 5.41
+    },
+    {
+      "source": "bench_5090d_oc300_mem2500_128k_cold_45k_64_20260703-065719.json",
+      "label": "bench_5090d_oc300_mem2500_128k_cold_45k_64_20260703-065719",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 28247,
+      "median_prompt_eval_rate": 6556.57,
+      "median_eval_rate": 113.51,
+      "median_wall_seconds": 9.21
+    },
+    {
+      "source": "bench_5090d_oc360_mem3000_128k_cold_1k_128_20260703-065941.json",
+      "label": "bench_5090d_oc360_mem3000_128k_cold_1k_128_20260703-065941",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 647,
+      "median_prompt_eval_rate": 2415.31,
+      "median_eval_rate": 120.37,
+      "median_wall_seconds": 5.14
+    },
+    {
+      "source": "bench_5090d_oc360_mem3000_128k_cold_45k_64_20260703-065941.json",
+      "label": "bench_5090d_oc360_mem3000_128k_cold_45k_64_20260703-065941",
+      "runs": 1,
+      "ok_runs": null,
+      "fail_runs": null,
+      "median_prompt_tokens": 28247,
+      "median_prompt_eval_rate": 6553.61,
+      "median_eval_rate": 103.89,
+      "median_wall_seconds": 9.49
+    },
+    {
+      "source": "bench_5090d_reboot_oc340_mem2500_unique7_20260703-073612_45k_64.json",
+      "label": "oc340_mem2500",
+      "runs": 7,
+      "ok_runs": 7,
+      "fail_runs": 0,
+      "median_prompt_tokens": 46838,
+      "median_prompt_eval_rate": 6236.43,
+      "median_eval_rate": 163.89,
+      "median_wall_seconds": 7.97
+    },
+    {
+      "source": "bench_5090d_reboot_oc340_mem3000_unique7_20260703-073843_45k_64.json",
+      "label": "oc340_mem3000",
+      "runs": 7,
+      "ok_runs": 7,
+      "fail_runs": 0,
+      "median_prompt_tokens": 46838,
+      "median_prompt_eval_rate": 6249.63,
+      "median_eval_rate": 164.5,
+      "median_wall_seconds": 7.96
+    }
+  ],
+  "generation_runs": [
+    {
+      "source": "bench_5090d_oc320_mem2800_generation_0_50_100_150_200_20260703-152507.json",
+      "label": "bench_5090d_oc320_mem2800_generation_0_50_100_150_200_20260703-152507",
+      "model": "qwen-main-v1",
+      "base_model": null,
+      "num_ctx": 262144,
+      "num_predict": 256,
+      "cases": [
+        {
+          "case": "0K",
+          "runs": 3,
+          "ok_runs": 3,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 102,
+          "median_prompt_eval_rate": 1269.41,
+          "median_eval_count": 256,
+          "median_eval_rate": 228.43,
+          "median_wall_seconds": 1.41
+        },
+        {
+          "case": "50K",
+          "runs": 3,
+          "ok_runs": 3,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 50105,
+          "median_prompt_eval_rate": 7190.92,
+          "median_eval_count": 86,
+          "median_eval_rate": 179.11,
+          "median_wall_seconds": 7.77
+        },
+        {
+          "case": "100K",
+          "runs": 3,
+          "ok_runs": 3,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 100107,
+          "median_prompt_eval_rate": 6178.68,
+          "median_eval_count": 256,
+          "median_eval_rate": 154.95,
+          "median_wall_seconds": 18.25
+        },
+        {
+          "case": "150K",
+          "runs": 3,
+          "ok_runs": 3,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 150107,
+          "median_prompt_eval_rate": 5101.61,
+          "median_eval_count": 256,
+          "median_eval_rate": 128.96,
+          "median_wall_seconds": 32.18
+        },
+        {
+          "case": "200K",
+          "runs": 3,
+          "ok_runs": 3,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 200107,
+          "median_prompt_eval_rate": 4421.24,
+          "median_eval_count": 256,
+          "median_eval_rate": 113.94,
+          "median_wall_seconds": 48.21
+        }
+      ]
+    },
+    {
+      "source": "bench_5090d_oc320_mem2800_qwen27b_generation_0_50_100_150_200_20260703-160621.json",
+      "label": "bench_5090d_oc320_mem2800_qwen27b_generation_0_50_100_150_200_20260703-160621",
+      "model": "qwen-review-v1",
+      "base_model": "qwen3.6:27b",
+      "num_ctx": 262144,
+      "num_predict": 256,
+      "cases": [
+        {
+          "case": "0K",
+          "runs": 1,
+          "ok_runs": 1,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 120,
+          "median_prompt_eval_rate": 647.42,
+          "median_eval_count": 256,
+          "median_eval_rate": 72.21,
+          "median_wall_seconds": 4.81
+        },
+        {
+          "case": "50K",
+          "runs": 1,
+          "ok_runs": 1,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 50123,
+          "median_prompt_eval_rate": 2679.26,
+          "median_eval_count": 256,
+          "median_eval_rate": 59.38,
+          "median_wall_seconds": 23.27
+        },
+        {
+          "case": "100K",
+          "runs": 1,
+          "ok_runs": 1,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 100125,
+          "median_prompt_eval_rate": 1953.48,
+          "median_eval_count": 256,
+          "median_eval_rate": 50.64,
+          "median_wall_seconds": 56.93
+        },
+        {
+          "case": "150K",
+          "runs": 1,
+          "ok_runs": 1,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 150125,
+          "median_prompt_eval_rate": 1524.39,
+          "median_eval_count": 256,
+          "median_eval_rate": 44.65,
+          "median_wall_seconds": 105.51
+        },
+        {
+          "case": "200K",
+          "runs": 1,
+          "ok_runs": 1,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 200125,
+          "median_prompt_eval_rate": 1254.68,
+          "median_eval_count": 256,
+          "median_eval_rate": 39.62,
+          "median_wall_seconds": 167.73
+        }
+      ]
+    },
+    {
+      "source": "bench_5090d_oc340_mem3000_generation_0_50k_100k_20260703-080642_generation.json",
+      "label": "oc340_mem3000_generation_0_50k_100k",
+      "model": "qwen-main-v1",
+      "base_model": null,
+      "num_ctx": 131072,
+      "num_predict": 512,
+      "cases": [
+        {
+          "case": "near_0",
+          "runs": 3,
+          "ok_runs": 3,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 57,
+          "median_prompt_eval_rate": 2026.88,
+          "median_eval_count": 512,
+          "median_eval_rate": 232.29,
+          "median_wall_seconds": 2.43
+        },
+        {
+          "case": "50k",
+          "runs": 3,
+          "ok_runs": 3,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 81250,
+          "median_prompt_eval_rate": 5663.65,
+          "median_eval_count": 512,
+          "median_eval_rate": 164.15,
+          "median_wall_seconds": 17.97
+        },
+        {
+          "case": "100k",
+          "runs": 3,
+          "ok_runs": 3,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 65538,
+          "median_prompt_eval_rate": 5876.59,
+          "median_eval_count": 512,
+          "median_eval_rate": 175.37,
+          "median_wall_seconds": 14.57
+        }
+      ]
+    },
+    {
+      "source": "bench_5090d_oc340_mem3000_generation_calibrated_0_50k_100k_20260703-081037_generation.json",
+      "label": "oc340_mem3000_generation_calibrated_0_50k_100k",
+      "model": "qwen-main-v1",
+      "base_model": null,
+      "num_ctx": 131072,
+      "num_predict": 512,
+      "cases": [
+        {
+          "case": "near_0",
+          "runs": 3,
+          "ok_runs": 3,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 72,
+          "median_prompt_eval_rate": 1046.71,
+          "median_eval_count": 512,
+          "median_eval_rate": 235.07,
+          "median_wall_seconds": 2.44
+        },
+        {
+          "case": "50k",
+          "runs": 3,
+          "ok_runs": 3,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 50074,
+          "median_prompt_eval_rate": 420426.02,
+          "median_eval_count": 512,
+          "median_eval_rate": 188.14,
+          "median_wall_seconds": 3.03
+        },
+        {
+          "case": "100k",
+          "runs": 3,
+          "ok_runs": 3,
+          "fail_runs": 0,
+          "median_actual_prompt_tokens": 100075,
+          "median_prompt_eval_rate": 639951.66,
+          "median_eval_count": 512,
+          "median_eval_rate": 155.06,
+          "median_wall_seconds": 3.69
+        }
+      ]
+    }
+  ],
+  "gpu_summaries": [
+    {
+      "source": "bench_5090d_manual_current_oc360_mem3000_repeat5_20260703-070420_smi.csv",
+      "samples": 18,
+      "max_power_w": 542.18,
+      "max_temperature_c": 65.0,
+      "max_utilization_pct": 93.0,
+      "max_memory_used_mib": 28665.0,
+      "memory_total_mib": 32607.0
+    },
+    {
+      "source": "bench_5090d_manual_current_oc360_mem3000_unique5_20260703-070519_smi.csv",
+      "samples": 33,
+      "max_power_w": 557.95,
+      "max_temperature_c": 73.0,
+      "max_utilization_pct": 94.0,
+      "max_memory_used_mib": 28693.0,
+      "memory_total_mib": 32607.0
+    },
+    {
+      "source": "bench_5090d_manual_oc320_mem2500_unique5_20260703-070851_smi.csv",
+      "samples": 45,
+      "max_power_w": 559.33,
+      "max_temperature_c": 72.0,
+      "max_utilization_pct": 94.0,
+      "max_memory_used_mib": 28686.0,
+      "memory_total_mib": 32607.0
+    },
+    {
+      "source": "bench_5090d_manual_oc365_mem2500_retest_unique7_20260703-071447_smi.csv",
+      "samples": 62,
+      "max_power_w": 546.61,
+      "max_temperature_c": 73.0,
+      "max_utilization_pct": 96.0,
+      "max_memory_used_mib": 28149.0,
+      "memory_total_mib": 32607.0
+    },
+    {
+      "source": "bench_5090d_manual_oc365_mem2500_unique5_20260703-071208_smi.csv",
+      "samples": 42,
+      "max_power_w": 553.46,
+      "max_temperature_c": 69.0,
+      "max_utilization_pct": 100.0,
+      "max_memory_used_mib": 28719.0,
+      "memory_total_mib": 32607.0
+    },
+    {
+      "source": "bench_5090d_oc340_mem3000_generation_0_50k_100k_20260703-080642_smi.csv",
+      "samples": 109,
+      "max_power_w": 576.58,
+      "max_temperature_c": 76.0,
+      "max_utilization_pct": 96.0,
+      "max_memory_used_mib": 30889.0,
+      "memory_total_mib": 32607.0
+    },
+    {
+      "source": "bench_5090d_oc340_mem3000_generation_calibrated_0_50k_100k_20260703-081037_smi.csv",
+      "samples": 50,
+      "max_power_w": 557.0,
+      "max_temperature_c": 71.0,
+      "max_utilization_pct": 96.0,
+      "max_memory_used_mib": 30774.0,
+      "memory_total_mib": 32607.0
+    },
+    {
+      "source": "bench_5090d_reboot_oc340_mem2500_unique7_20260703-073612_smi.csv",
+      "samples": 61,
+      "max_power_w": 567.05,
+      "max_temperature_c": 75.0,
+      "max_utilization_pct": 95.0,
+      "max_memory_used_mib": 29718.0,
+      "memory_total_mib": 32607.0
+    },
+    {
+      "source": "bench_5090d_reboot_oc340_mem3000_unique7_20260703-073843_smi.csv",
+      "samples": 60,
+      "max_power_w": 569.41,
+      "max_temperature_c": 75.0,
+      "max_utilization_pct": 95.0,
+      "max_memory_used_mib": 29765.0,
+      "memory_total_mib": 32607.0
+    }
+  ],
+  "stability_runs": [
+    {
+      "run_id": "smoke_test",
+      "state": "completed",
+      "started_at_utc": "2026-07-03T15:23:27.208982+00:00",
+      "elapsed_seconds": 11.9,
+      "duration_seconds": 10,
+      "model": "qwen-main-v1",
+      "num_ctx": 262144,
+      "num_predict": 256,
+      "iterations": 1,
+      "ok_count": 1,
+      "fail_count": 0,
+      "max_gpu": {
+        "power_w": 436.14,
+        "temperature_c": 65,
+        "utilization_pct": 91,
+        "memory_used_mib": 31590
+      }
+    },
+    {
+      "run_id": "stability_256k_20260703-082357",
+      "state": "running",
+      "started_at_utc": "2026-07-03T15:23:58.012352+00:00",
+      "elapsed_seconds": 362.9,
+      "duration_seconds": 7200,
+      "model": "qwen-main-v1",
+      "num_ctx": 262144,
+      "num_predict": 256,
+      "iterations": 11,
+      "ok_count": 11,
+      "fail_count": 0,
+      "max_gpu": {
+        "power_w": 575.25,
+        "temperature_c": 76,
+        "utilization_pct": 91,
+        "memory_used_mib": 31713
+      }
+    },
+    {
+      "run_id": "stability_256k_20260703-084539",
+      "state": "completed",
+      "started_at_utc": "2026-07-03T15:45:41.299181+00:00",
+      "elapsed_seconds": 7224.4,
+      "duration_seconds": 7200,
+      "model": "qwen-main-v1",
+      "num_ctx": 262144,
+      "num_predict": 256,
+      "iterations": 219,
+      "ok_count": 219,
+      "fail_count": 0,
+      "max_gpu": {
+        "power_w": 577.39,
+        "temperature_c": 78,
+        "utilization_pct": 95,
+        "memory_used_mib": 30685
+      }
+    }
+  ]
+}

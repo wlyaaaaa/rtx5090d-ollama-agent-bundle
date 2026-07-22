@@ -7,6 +7,15 @@ results/ollama-service/
 results/logs/
 *.log
 
+# Raw RTX 5090D benchmark/stability evidence stays local until summarized.
+results/benchmarks/bench_5090d_*.json
+results/benchmarks/bench_5090d_*.jsonl
+results/benchmarks/bench_5090d_*.csv
+results/benchmarks/bench_5090d_*.txt
+results/stability/**
+!results/benchmarks/rtx5090d_public_summary.json
+!results/benchmarks/rtx5090d_public_summary.md
+
 # Disposable smoke-test repositories and caches.
 results/opencode-smoke-repo/
 results/smoke/

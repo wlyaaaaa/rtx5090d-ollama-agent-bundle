@@ -17,5 +17,5 @@
 
 ## 实机偏差记录
 
-- 当前 OpenClaw 2026.6.10 推理路径未接受 `api=ollama`；实测可用配置为 `api=openai-completions` 与 `http://127.0.0.1:11700/v1`。
+- 当前 OpenClaw 2026.6.10 推理路径未接受 `api=ollama`；实测可用配置为 `api=openai-completions` 与 `http://127.0.0.1:32100/v1`。
 - 上述偏差应在 OpenClaw 升级后重新验证，不应盲目回切。

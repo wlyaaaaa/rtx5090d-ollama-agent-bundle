@@ -1,0 +1,194 @@
+{
+  "model": "qwen-review-v1",
+  "base_model": "qwen3.6:27b",
+  "host": "http://127.0.0.1:32100",
+  "num_ctx": 262144,
+  "num_predict": 256,
+  "repeats": 1,
+  "profile": "+320 core / +2800 mem (user-managed)",
+  "max_gpu_observed": {
+    "power_w": 554.95,
+    "temp_c": 74,
+    "memory_used_mib": 30178,
+    "mem_mhz": 16601
+  },
+  "cases": [
+    {
+      "case": "0K",
+      "target_context_tokens": 0,
+      "actual_prompt_eval_count_median": 120,
+      "prompt_eval_rate_median": 647.4202998635022,
+      "eval_rate_median": 72.21084211945592,
+      "wall_seconds_median": 4.811957500001881,
+      "eval_count_median": 256,
+      "done_reasons": [
+        "length"
+      ]
+    },
+    {
+      "case": "50K",
+      "target_context_tokens": 50000,
+      "actual_prompt_eval_count_median": 50123,
+      "prompt_eval_rate_median": 2679.255491650572,
+      "eval_rate_median": 59.37902069614015,
+      "wall_seconds_median": 23.271592400000372,
+      "eval_count_median": 256,
+      "done_reasons": [
+        "length"
+      ]
+    },
+    {
+      "case": "100K",
+      "target_context_tokens": 100000,
+      "actual_prompt_eval_count_median": 100125,
+      "prompt_eval_rate_median": 1953.4750052263382,
+      "eval_rate_median": 50.642336716544754,
+      "wall_seconds_median": 56.929160600000614,
+      "eval_count_median": 256,
+      "done_reasons": [
+        "length"
+      ]
+    },
+    {
+      "case": "150K",
+      "target_context_tokens": 150000,
+      "actual_prompt_eval_count_median": 150125,
+      "prompt_eval_rate_median": 1524.387024303923,
+      "eval_rate_median": 44.64506043389069,
+      "wall_seconds_median": 105.51428060000035,
+      "eval_count_median": 256,
+      "done_reasons": [
+        "length"
+      ]
+    },
+    {
+      "case": "200K",
+      "target_context_tokens": 200000,
+      "actual_prompt_eval_count_median": 200125,
+      "prompt_eval_rate_median": 1254.676565916917,
+      "eval_rate_median": 39.61631597973626,
+      "wall_seconds_median": 167.7267436000002,
+      "eval_count_median": 256,
+      "done_reasons": [
+        "length"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "case": "0K",
+      "target_context_tokens": 0,
+      "run": 1,
+      "ok": true,
+      "error": null,
+      "prompt_eval_count": 120,
+      "prompt_eval_rate": 647.4202998635022,
+      "eval_count": 256,
+      "eval_rate": 72.21084211945592,
+      "wall_seconds": 4.811957500001881,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 534.24,
+        "power_limit_w": 575.0,
+        "temp_c": 63,
+        "util_pct": 95,
+        "gfx_mhz": 3195,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30178,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "50K",
+      "target_context_tokens": 50000,
+      "run": 1,
+      "ok": true,
+      "error": null,
+      "prompt_eval_count": 50123,
+      "prompt_eval_rate": 2679.255491650572,
+      "eval_count": 256,
+      "eval_rate": 59.37902069614015,
+      "wall_seconds": 23.271592400000372,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 538.02,
+        "power_limit_w": 575.0,
+        "temp_c": 69,
+        "util_pct": 96,
+        "gfx_mhz": 3082,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30070,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "100K",
+      "target_context_tokens": 100000,
+      "run": 1,
+      "ok": true,
+      "error": null,
+      "prompt_eval_count": 100125,
+      "prompt_eval_rate": 1953.4750052263382,
+      "eval_count": 256,
+      "eval_rate": 50.642336716544754,
+      "wall_seconds": 56.929160600000614,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 540.02,
+        "power_limit_w": 575.0,
+        "temp_c": 74,
+        "util_pct": 95,
+        "gfx_mhz": 2925,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30092,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "150K",
+      "target_context_tokens": 150000,
+      "run": 1,
+      "ok": true,
+      "error": null,
+      "prompt_eval_count": 150125,
+      "prompt_eval_rate": 1524.387024303923,
+      "eval_count": 256,
+      "eval_rate": 44.64506043389069,
+      "wall_seconds": 105.51428060000035,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 548.67,
+        "power_limit_w": 575.0,
+        "temp_c": 74,
+        "util_pct": 96,
+        "gfx_mhz": 2857,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30088,
+        "memory_total_mib": 32607
+      }
+    },
+    {
+      "case": "200K",
+      "target_context_tokens": 200000,
+      "run": 1,
+      "ok": true,
+      "error": null,
+      "prompt_eval_count": 200125,
+      "prompt_eval_rate": 1254.676565916917,
+      "eval_count": 256,
+      "eval_rate": 39.61631597973626,
+      "wall_seconds": 167.7267436000002,
+      "done_reason": "length",
+      "gpu_after": {
+        "power_w": 554.95,
+        "power_limit_w": 575.0,
+        "temp_c": 74,
+        "util_pct": 96,
+        "gfx_mhz": 2850,
+        "mem_mhz": 16601,
+        "memory_used_mib": 30152,
+        "memory_total_mib": 32607
+      }
+    }
+  ]
+}

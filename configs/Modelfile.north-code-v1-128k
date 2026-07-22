@@ -1,0 +1,7 @@
+FROM north-mini-code-opencode:latest
+
+PARAMETER num_ctx 131072
+PARAMETER num_predict 16384
+PARAMETER temperature 1.0
+PARAMETER top_p 0.95
+PARAMETER repeat_penalty 1.0
