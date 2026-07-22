@@ -14,6 +14,7 @@
 - 复核模型：`qwen-review-v1`，`num_ctx=131072`。
 - Chatbox / OpenClaw / OpenCode 均使用版本化 v1 别名。
 - `qwen-main-v1` 256K 两小时稳定性验证：`219/219` 通过，`0` 失败。
+- 顶级模型的数据工厂调用已改由 `llm-backend-toolkit` / aicli 管理；本仓库只拥有 GPU、Ollama 端点与模型别名事实，不自行选择智能体。
 - 非阻断 WARN：旧 `ollama.exe` 入站防火墙 Allow 规则可能仍存在；当前 Ollama 仅监听 loopback。
 
 ## 最终模型策略
@@ -26,6 +27,12 @@
 | `north-code-v1` | `north-mini-code-opencode:latest` | `262144` | OpenCode 代码实验备用 |
 
 `qwen-review-v1` 没有继续使用 256K，是因为 27B dense 模型在 150K/200K 上下文下明显变慢。它现在固定为 128K，更适合作为快速复核模型。
+
+## 顶级模型调用结论（2026-07-22）
+
+相同 `qwen-main-v1`、相同 PersonalOS 风格数据清洗题实测后，稳定别名 `data_factory` 选择 **Codex CLI**：21/21、exit 0、47.343 秒、18 个真实 action items，另有 1 条模型元数据警告。Claude Code 也生成 21/21 产物，但约 101.7 秒后 exit 1；Qwen Code 与 OpenCode 未通过结果门槛。
+
+因此 OpenCode 仍是 GUI/实验客户端，但不再被上层工具当作默认数据智能体。具体路由、沙箱、上下文压缩和能力边界由 `llm-backend-toolkit` 拥有；CLI Profile 和 machine run 由 `ai-cli-profile-manager` 拥有。三者不做重复路由，也不自动 fallback。
 
 ## 关键配置
 
